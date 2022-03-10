@@ -24,7 +24,7 @@ jobs:
          sudo npm install -g snyk
          snyk auth ${SNYK_TOKEN}
     # Run Snyk Code
-    - name: Run Snyk Code
+    - name: Run Snyk Codes
       run: |
          snyk code test --severity-threshold=high --sarif  >> results.sarif 
       continue-on-error: true
