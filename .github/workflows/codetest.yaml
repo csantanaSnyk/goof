@@ -11,4 +11,10 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: monitor
-    
+      - uses: snyk/actions/setup@master
+      - name: Snyk code 
+        env:
+           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+        
