@@ -1,21 +1,14 @@
-name: "snyk test"
-on: [push, pull_request]
+name: Example workflow using Snyk
+on: push
 jobs:
-  build:
+  security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: snyk/actions/setup@master
-      - name: Snyk Test
-        run: snyk test 
-        continue-on-error: true
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
         env:
-           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      - uses: snyk/actions/setup@master
-      - name: Snyk Code Test
-        run: snyk code test 
-        continue-on-error: true
-        env:
-           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-           command: monitor
+          command: monitor
+    
