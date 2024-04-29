@@ -1,9 +1,7 @@
 name: "Snyk Code Test"
 
 on:
-  push:
-    branches:
-    - master
+  workflow_dispatch: {}
 
 jobs:
   Pipeline-Job:
